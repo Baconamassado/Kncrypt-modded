@@ -2121,11 +2121,11 @@ function Library:CreateWindow(setup)
 
 				if qualityLevel < 8 then
 					Library:Tween(MainFrame , Library.TweenLibrary.SmallEffect , {
-						BackgroundTransparency = 0
+						BackgroundTransparency = 0.075
 					})
 				else
 					Library:Tween(MainFrame , Library.TweenLibrary.SmallEffect , {
-						BackgroundTransparency = 0
+						BackgroundTransparency = 0.15
 					})
 
 				end;
@@ -2506,7 +2506,7 @@ function Library:CreateWindow(setup)
 	Title.Parent = Headers
 	Title.AnchorPoint = Vector2.new(0.5, 0.5)
 	Title.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-	Title.BackgroundTransparency = 0
+	Title.BackgroundTransparency = 1.000
 	Title.BorderColor3 = Color3.fromRGB(27, 42, 53)
 	Title.BorderSizePixel = 0
 	Title.Position = UDim2.new(0.5, 0, 0.5, 0)
@@ -2705,7 +2705,7 @@ function Library:CreateWindow(setup)
 	TabFrames.Parent = Block
 	TabFrames.AnchorPoint = Vector2.new(1, 1)
 	TabFrames.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-	TabFrames.BackgroundTransparency = 0
+	TabFrames.BackgroundTransparency = 1.000
 	TabFrames.BorderColor3 = Color3.fromRGB(0, 0, 0)
 	TabFrames.BorderSizePixel = 0
 	TabFrames.ClipsDescendants = true
@@ -3268,7 +3268,7 @@ function Library:CreateWindow(setup)
 		Title.Parent = TFrame
 		Title.AnchorPoint = Vector2.new(0, 0.5)
 		Title.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-		Title.BackgroundTransparency = 0
+		Title.BackgroundTransparency = 1.000
 		Title.BorderColor3 = Color3.fromRGB(0, 0, 0)
 		Title.BorderSizePixel = 0
 		Title.Position = UDim2.new(0.665000021, 0, 0.5, 0)
@@ -3302,7 +3302,7 @@ function Library:CreateWindow(setup)
 		Button.Name = "Button"
 		Button.Parent = TFrame
 		Button.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-		Button.BackgroundTransparency = 0
+		Button.BackgroundTransparency = 1.000
 		Button.BorderColor3 = Color3.fromRGB(0, 0, 0)
 		Button.BorderSizePixel = 0
 		Button.Size = UDim2.new(1, 0, 1, 0)
