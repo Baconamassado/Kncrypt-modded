@@ -2,9 +2,9 @@
 -- This is not hyprland --
 
 local Library = {
-	Version = 'AcrylicHELL.0.6',
+	Version = 'Hell-Acrylic.0.6',
 	Loaded = true,
-	Discord = 'https://discord.gg/nzwawGTW6k',
+	Discord = 'discord.gg/nzwawGTW6k',
 	env = getgenv or getfenv,
 	Executor = {"s","w","z","t","a","c"},
 	Skid = true,
@@ -1537,6 +1537,16 @@ function Library.Theme:Christmas()
 	}
 end
 
+function Library.Theme:Hellmenu()
+    Library.Colors = {
+		Hightlight = Color3.fromRGB(255, 0, 0),
+		Default = Color3.fromRGB(24, 26, 30),
+		Disable = Color3.fromRGB(139, 0, 0),
+		TextColor = Color3.fromRGB(160, 0, 0),
+    }
+end;
+
+
 function Library.Theme:Random()
 	local RNG = Random.new();
 
@@ -1552,15 +1562,6 @@ function Library.Theme:Random()
 	};
 
 	print('Random Theme:',Library.Colors)
-end;
-
-function Library.Theme:Hellmenu()
-    Library.Colors = {
-		Hightlight = Color3.fromRGB(255, 0, 0),
-		Default = Color3.fromRGB(24, 26, 30),
-		Disable = Color3.fromRGB(139, 0, 0),
-		TextColor = Color3.fromRGB(160, 0, 0),
-    }
 end;
 
 Library.TweenLibrary = {
@@ -1619,7 +1620,7 @@ local LoadAcrylic = function()
 		BlockMesh.Parent = Part;
 
 		Part.Material = Enum.Material.Glass;
-		Part.Transparency = 0;
+		Part.Transparency = 1;
 		Part.Reflectance = 1;
 		Part.CastShadow = false;
 		Part.Anchored = true;
@@ -1630,7 +1631,7 @@ local LoadAcrylic = function()
 		Part.Color = Color3.fromRGB(0,0,0);
 
 		Twen:Create(Part,TweenInfo.new(1,Enum.EasingStyle.Quint,Enum.EasingDirection.In),{
-			Transparency = 0.1;
+			Transparency = 0.8;
 		}):Play()
 
 		DepthOfField.Enabled = true;
@@ -1669,11 +1670,11 @@ local LoadAcrylic = function()
 
 				if qualityLevel < 8 then
 					Twen:Create(Part,TweenInfo.new(1,Enum.EasingStyle.Quint,Enum.EasingDirection.Out),{
-						Transparency = 0;
+						Transparency = 1;
 					}):Play()
 				else
 					Twen:Create(Part,TweenInfo.new(1,Enum.EasingStyle.Quint,Enum.EasingDirection.Out),{
-						Transparency = 0;
+						Transparency = 0.8;
 					}):Play()
 				end;
 			end)
@@ -1719,7 +1720,7 @@ local LoadAcrylic = function()
 			end;
 
 			Twen:Create(Part,TweenInfo.new(1),{
-				Transparency = 0
+				Transparency = 1
 			}):Play();
 
 			DepthOfField:Destroy();
@@ -2022,7 +2023,7 @@ function Library:InputButton(Frame :Frame)
 	Button.Name = "Button"
 	Button.Parent = Frame
 	Button.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-	Button.BackgroundTransparency = 0
+	Button.BackgroundTransparency = 1.000
 	Button.BorderColor3 = Color3.fromRGB(0, 0, 0)
 	Button.BorderSizePixel = 0
 	Button.Size = UDim2.new(1, 0, 1, 0)
@@ -2030,7 +2031,7 @@ function Library:InputButton(Frame :Frame)
 	Button.Font = Enum.Font.SourceSans
 	Button.TextColor3 = Color3.fromRGB(0, 0, 0)
 	Button.TextSize = 14.000
-	Button.TextTransparency = 0
+	Button.TextTransparency = 1.000	
 
 	return Button;
 end;
@@ -2214,7 +2215,7 @@ function Library:CreateWindow(setup)
 		Title.Parent = AuthFunction
 		Title.AnchorPoint = Vector2.new(0.5, 0.5)
 		Title.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-		Title.BackgroundTransparency = 0
+		Title.BackgroundTransparency = 1.000
 		Title.BorderColor3 = Color3.fromRGB(0, 0, 0)
 		Title.BorderSizePixel = 0
 		Title.Position = UDim2.new(0.5, 0, 0.100000001, 0)
@@ -2225,14 +2226,14 @@ function Library:CreateWindow(setup)
 		Title.TextScaled = true
 		Title.TextSize = 14.000
 		Title.TextStrokeColor3 = Library.Colors.TextColor
-		Title.TextStrokeTransparency = 0
+		Title.TextStrokeTransparency = 0.950
 		Title.TextWrapped = true
 		Title.RichText = true;
 
 		TextBox.Parent = AuthFunction
 		TextBox.AnchorPoint = Vector2.new(0.5, 0.5)
 		TextBox.BackgroundColor3 = Library.Colors.Default
-		TextBox.BackgroundTransparency = 0
+		TextBox.BackgroundTransparency = 0.250
 		TextBox.BorderColor3 = Color3.fromRGB(0, 0, 0)
 		TextBox.BorderSizePixel = 0
 		TextBox.Position = UDim2.new(0.5, 0, 0.349999994, 0)
@@ -2245,8 +2246,8 @@ function Library:CreateWindow(setup)
 		TextBox.TextColor3 = Library.Colors.TextColor
 		TextBox.TextSize = 13.000
 		TextBox.TextStrokeColor3 = Library.Colors.TextColor
-		TextBox.TextStrokeTransparency = 0
-		TextBox.TextTransparency = 0
+		TextBox.TextStrokeTransparency = 0.950
+		TextBox.TextTransparency = 0.250
 		TextBox.TextWrapped = true
 
 		DropShadow.Name = "DropShadow"
@@ -2264,12 +2265,12 @@ function Library:CreateWindow(setup)
 		DropShadow.SliceCenter = Rect.new(95, 103, 894, 902)
 		DropShadow.SliceScale = 0.050
 
-		UIStroke.Transparency = 0
+		UIStroke.Transparency = 0.850
 		UIStroke.Color = Color3.fromRGB(156, 156, 156)
 		UIStroke.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
 		UIStroke.Parent = TextBox
 
-		UIStroke_2.Transparency = 0
+		UIStroke_2.Transparency = 0.850
 		UIStroke_2.Color = Color3.fromRGB(156, 156, 156)
 		UIStroke_2.Parent = AuthFunction
 
@@ -2277,7 +2278,7 @@ function Library:CreateWindow(setup)
 		GetButton.Parent = AuthFunction
 		GetButton.AnchorPoint = Vector2.new(0.5, 0.5)
 		GetButton.BackgroundColor3 = Library.Colors.Default
-		GetButton.BackgroundTransparency = 0
+		GetButton.BackgroundTransparency = 0.250
 		GetButton.BorderColor3 = Color3.fromRGB(0, 0, 0)
 		GetButton.BorderSizePixel = 0
 		GetButton.Position = UDim2.new(0.25, 0, 0.649999976, 0)
@@ -2299,7 +2300,7 @@ function Library:CreateWindow(setup)
 		DropShadow_2.SliceCenter = Rect.new(95, 103, 894, 902)
 		DropShadow_2.SliceScale = 0.050
 
-		UIStroke_3.Transparency = 0
+		UIStroke_3.Transparency = 0.850
 		UIStroke_3.Color = Color3.fromRGB(156, 156, 156)
 		UIStroke_3.Parent = GetButton
 
@@ -2307,7 +2308,7 @@ function Library:CreateWindow(setup)
 		GTitle.Parent = GetButton
 		GTitle.AnchorPoint = Vector2.new(0.5, 0.5)
 		GTitle.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-		GTitle.BackgroundTransparency = 0
+		GTitle.BackgroundTransparency = 1.000
 		GTitle.BorderColor3 = Color3.fromRGB(0, 0, 0)
 		GTitle.BorderSizePixel = 0
 		GTitle.Position = UDim2.new(0.5, 0, 0.5, 0)
@@ -2319,13 +2320,13 @@ function Library:CreateWindow(setup)
 		GTitle.TextScaled = true
 		GTitle.TextSize = 14.000
 		GTitle.TextStrokeColor3 = Library.Colors.TextColor
-		GTitle.TextStrokeTransparency = 0
+		GTitle.TextStrokeTransparency = 0.950
 		GTitle.TextWrapped = true
 
 		GButton.Name = "GButton"
 		GButton.Parent = GetButton
 		GButton.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-		GButton.BackgroundTransparency = 0
+		GButton.BackgroundTransparency = 1.000
 		GButton.BorderColor3 = Color3.fromRGB(0, 0, 0)
 		GButton.BorderSizePixel = 0
 		GButton.Size = UDim2.new(1, 0, 1, 0)
@@ -2333,7 +2334,7 @@ function Library:CreateWindow(setup)
 		GButton.Font = Enum.Font.SourceSans
 		GButton.TextColor3 = Color3.fromRGB(0, 0, 0)
 		GButton.TextSize = 14.000
-		GButton.TextTransparency = 0
+		GButton.TextTransparency = 1.000
 
 		LoginButton.Name = "LoginButton"
 		LoginButton.Parent = AuthFunction
@@ -2361,7 +2362,7 @@ function Library:CreateWindow(setup)
 		DropShadow_3.SliceCenter = Rect.new(95, 103, 894, 902)
 		DropShadow_3.SliceScale = 0.050
 
-		UIStroke_4.Transparency = 0
+		UIStroke_4.Transparency = 0.850
 		UIStroke_4.Color = Color3.fromRGB(156, 156, 156)
 		UIStroke_4.Parent = LoginButton
 
@@ -2369,7 +2370,7 @@ function Library:CreateWindow(setup)
 		LTitle.Parent = LoginButton
 		LTitle.AnchorPoint = Vector2.new(0.5, 0.5)
 		LTitle.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-		LTitle.BackgroundTransparency = 0
+		LTitle.BackgroundTransparency = 1.000
 		LTitle.BorderColor3 = Color3.fromRGB(0, 0, 0)
 		LTitle.BorderSizePixel = 0
 		LTitle.Position = UDim2.new(0.5, 0, 0.5, 0)
@@ -2381,13 +2382,13 @@ function Library:CreateWindow(setup)
 		LTitle.TextScaled = true
 		LTitle.TextSize = 14.000
 		LTitle.TextStrokeColor3 = Library.Colors.TextColor
-		LTitle.TextStrokeTransparency = 0
+		LTitle.TextStrokeTransparency = 0.950
 		LTitle.TextWrapped = true
 
 		LButton.Name = "LButton"
 		LButton.Parent = LoginButton
 		LButton.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-		LButton.BackgroundTransparency = 0
+		LButton.BackgroundTransparency = 1.000
 		LButton.BorderColor3 = Color3.fromRGB(0, 0, 0)
 		LButton.BorderSizePixel = 0
 		LButton.Size = UDim2.new(1, 0, 1, 0)
@@ -2396,7 +2397,7 @@ function Library:CreateWindow(setup)
 		LButton.Text = "Login"
 		LButton.TextColor3 = Color3.fromRGB(0, 0, 0)
 		LButton.TextSize = 14.000
-		LButton.TextTransparency = 0
+		LButton.TextTransparency = 1.000
 
 
 		Library:MakeDrop(GetButton , UIStroke_3 , Library.Colors.Hightlight)
@@ -2445,7 +2446,7 @@ function Library:CreateWindow(setup)
 	end;
 
 	Library:Tween(MainFrame , Library.TweenLibrary.WindowChanged,{Size = setup.Size})
-	Library:Tween(Ico , Library.TweenLibrary.SmallEffect,{ImageTransparency = 0})
+	Library:Tween(Ico , Library.TweenLibrary.SmallEffect,{ImageTransparency = 1})
 
 	local WindowLibrary = {};
 	local OpenDelay = tick();
@@ -2483,7 +2484,7 @@ function Library:CreateWindow(setup)
 	Block.Active = true
 	Block.AnchorPoint = Vector2.new(0.5, 0.5)
 	Block.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-	Block.BackgroundTransparency = 0
+	Block.BackgroundTransparency = 1.000
 	Block.BorderColor3 = Color3.fromRGB(0, 0, 0)
 	Block.BorderSizePixel = 0
 	Block.Position = UDim2.new(0.5, 0, -2, 0)
@@ -2495,7 +2496,7 @@ function Library:CreateWindow(setup)
 	Headers.Parent = Block
 	Headers.Active = true
 	Headers.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-	Headers.BackgroundTransparency = 0
+	Headers.BackgroundTransparency = 1.000
 	Headers.BorderColor3 = Color3.fromRGB(0, 0, 0)
 	Headers.BorderSizePixel = 0
 	Headers.Size = UDim2.new(1, 0, 0, 19)
@@ -2517,15 +2518,15 @@ function Library:CreateWindow(setup)
 	Title.TextScaled = true
 	Title.TextSize = 14.000
 	Title.TextStrokeColor3 = Library.Colors.TextColor
-	Title.TextStrokeTransparency = 0
+	Title.TextStrokeTransparency = 0.950
 	Title.TextWrapped = true
 	Title.TextXAlignment = Enum.TextXAlignment.Left
-	Title.TextTransparency = 0
+	Title.TextTransparency = 1
 	Title.RichText = true
 
 	task.delay(1,function()
 		Library:Tween(Title , TweenInfo.new(1,Enum.EasingStyle.Quint),{
-			TextStrokeTransparency = 0,
+			TextStrokeTransparency = 0.950,
 			TextTransparency = 0,
 		})
 	end)
@@ -2534,7 +2535,7 @@ function Library:CreateWindow(setup)
 	WindowControl.Parent = Headers
 	WindowControl.AnchorPoint = Vector2.new(1, 0.5)
 	WindowControl.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-	WindowControl.BackgroundTransparency = 0
+	WindowControl.BackgroundTransparency = 1.000
 	WindowControl.BorderColor3 = Color3.fromRGB(0, 0, 0)
 	WindowControl.BorderSizePixel = 0
 	WindowControl.Position = UDim2.new(0.99000001, 0, 0.5, 0)
@@ -2609,7 +2610,7 @@ function Library:CreateWindow(setup)
 	Frame.Parent = Headers
 	Frame.AnchorPoint = Vector2.new(0, 1)
 	Frame.BackgroundColor3 = Color3.fromRGB(107, 110, 120)
-	Frame.BackgroundTransparency = 0
+	Frame.BackgroundTransparency = 0.250
 	Frame.BorderColor3 = Color3.fromRGB(0, 0, 0)
 	Frame.BorderSizePixel = 0
 	Frame.Position = UDim2.new(0, 0, 1, 0)
@@ -2619,7 +2620,7 @@ function Library:CreateWindow(setup)
 	DataFrame.Parent = Block
 	DataFrame.AnchorPoint = Vector2.new(0, 1)
 	DataFrame.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-	DataFrame.BackgroundTransparency = 0
+	DataFrame.BackgroundTransparency = 1.000
 	DataFrame.BorderColor3 = Color3.fromRGB(0, 0, 0)
 	DataFrame.BorderSizePixel = 0
 	DataFrame.ClipsDescendants = true
@@ -2632,7 +2633,7 @@ function Library:CreateWindow(setup)
 	DataScrollingFrame.Active = true
 	DataScrollingFrame.AnchorPoint = Vector2.new(0.5, 0.5)
 	DataScrollingFrame.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-	DataScrollingFrame.BackgroundTransparency = 0
+	DataScrollingFrame.BackgroundTransparency = 1.000
 	DataScrollingFrame.BorderColor3 = Color3.fromRGB(0, 0, 0)
 	DataScrollingFrame.BorderSizePixel = 0
 	DataScrollingFrame.ClipsDescendants = false
@@ -2740,7 +2741,7 @@ function Library:CreateWindow(setup)
 		Dropdown.ZIndex = 100
 		Dropdown.Visible = false;
 
-		UIStroke.Transparency = 0
+		UIStroke.Transparency = 0.850
 		UIStroke.Color = Color3.fromRGB(156, 156, 156)
 		UIStroke.Parent = Dropdown
 
@@ -2748,7 +2749,7 @@ function Library:CreateWindow(setup)
 		ScrollingFrame.Active = true
 		ScrollingFrame.AnchorPoint = Vector2.new(0.5, 0.5)
 		ScrollingFrame.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-		ScrollingFrame.BackgroundTransparency = 0
+		ScrollingFrame.BackgroundTransparency = 1.000
 		ScrollingFrame.BorderColor3 = Color3.fromRGB(0, 0, 0)
 		ScrollingFrame.BorderSizePixel = 0
 		ScrollingFrame.ClipsDescendants = false
@@ -2795,7 +2796,7 @@ function Library:CreateWindow(setup)
 
 			Frame.Parent = ScrollingFrame
 			Frame.BackgroundColor3 = Library.Colors.Default
-			Frame.BackgroundTransparency = 0
+			Frame.BackgroundTransparency = 0.250
 			Frame.BorderColor3 = Color3.fromRGB(0, 0, 0)
 			Frame.BorderSizePixel = 0
 			Frame.Size = UDim2.new(0.980000019, 0, 0, 22)
@@ -2816,7 +2817,7 @@ function Library:CreateWindow(setup)
 			DropShadow.SliceCenter = Rect.new(95, 103, 894, 902)
 			DropShadow.SliceScale = 0.050
 
-			UIStroke.Transparency = 0
+			UIStroke.Transparency = 0.850
 			UIStroke.Color = Color3.fromRGB(156, 156, 156)
 			UIStroke.Parent = Frame
 
@@ -2827,7 +2828,7 @@ function Library:CreateWindow(setup)
 			TextLabel.Parent = Frame
 			TextLabel.AnchorPoint = Vector2.new(0.5, 0.5)
 			TextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-			TextLabel.BackgroundTransparency = 0
+			TextLabel.BackgroundTransparency = 1.000
 			TextLabel.BorderColor3 = Color3.fromRGB(0, 0, 0)
 			TextLabel.BorderSizePixel = 0
 			TextLabel.Position = UDim2.new(0.5, 0, 0.5, 0)
@@ -2839,7 +2840,7 @@ function Library:CreateWindow(setup)
 			TextLabel.TextScaled = true
 			TextLabel.TextSize = 14.000
 			TextLabel.TextStrokeColor3 = Library.Colors.TextColor
-			TextLabel.TextStrokeTransparency = 0 
+			TextLabel.TextStrokeTransparency = 0.950
 			TextLabel.TextWrapped = true
 
 			if IsDefault then
@@ -2850,7 +2851,7 @@ function Library:CreateWindow(setup)
 			Button.Parent = Frame
 			Button.AnchorPoint = Vector2.new(0.5, 0.5)
 			Button.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-			Button.BackgroundTransparency = 0
+			Button.BackgroundTransparency = 1.000
 			Button.BorderColor3 = Color3.fromRGB(0, 0, 0)
 			Button.BorderSizePixel = 0
 			Button.Position = UDim2.new(0.5, 0, 0.5, 0)
@@ -2860,7 +2861,7 @@ function Library:CreateWindow(setup)
 			Button.Text = ""
 			Button.TextColor3 = Color3.fromRGB(0, 0, 0)
 			Button.TextSize = 14.000
-			Button.TextTransparency = 0
+			Button.TextTransparency = 1.000
 
 			Icon.Name = "Icon"
 			Icon.Parent = Frame
@@ -3011,7 +3012,7 @@ function Library:CreateWindow(setup)
 			Watermark.Parent = ScreenGui;
 			Watermark.AnchorPoint = Vector2.new(1, 0)
 			Watermark.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-			Watermark.BackgroundTransparency = 2.200
+			Watermark.BackgroundTransparency = 1.000
 			Watermark.BorderColor3 = Color3.fromRGB(0, 0, 0)
 			Watermark.BorderSizePixel = 0
 			Watermark.Position = UDim2.new(1, -5, 0, 35)
@@ -3029,20 +3030,20 @@ function Library:CreateWindow(setup)
 
 				Frame.Parent = Watermark
 				Frame.BackgroundColor3 = Library.Colors.Default
-				Frame.BackgroundTransparency = 0
+				Frame.BackgroundTransparency = 0.250
 				Frame.BorderColor3 = Color3.fromRGB(0, 0, 0)
 				Frame.BorderSizePixel = 0
 				Frame.Size = UDim2.new(0,0,0,0)
 				Frame.ZIndex = 255;
 
-				UIStroke.Transparency = 0
+				UIStroke.Transparency = 0.850
 				UIStroke.Color = Color3.fromRGB(156, 156, 156)
 				UIStroke.Parent = Frame
 
 				TextLabel.Parent = Frame
 				TextLabel.AnchorPoint = Vector2.new(1, 0.5)
 				TextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-				TextLabel.BackgroundTransparency = 0
+				TextLabel.BackgroundTransparency = 1.000
 				TextLabel.BorderColor3 = Color3.fromRGB(0, 0, 0)
 				TextLabel.BorderSizePixel = 0
 				TextLabel.Position = UDim2.new(1, -5, 0.5, 0)
@@ -3050,7 +3051,7 @@ function Library:CreateWindow(setup)
 				TextLabel.Font = Enum.Font.Gotham
 				TextLabel.TextColor3 = Library.Colors.TextColor
 				TextLabel.TextSize = 13.000
-				TextLabel.TextStrokeTransparency = 0
+				TextLabel.TextStrokeTransparency = 0.950
 				TextLabel.TextXAlignment = Enum.TextXAlignment.Right
 				TextLabel.TextYAlignment = Enum.TextYAlignment.Top
 				TextLabel.Text = text or "";
@@ -3190,8 +3191,8 @@ function Library:CreateWindow(setup)
 		game:GetService('RunService'):BindToRenderStep("_TOOL_TIP_",120,function()
 			if Tip.Visible then
 				Library:Tween(Tip,Library.TweenLibrary.FastEffect,{
-					TextTransparency = 0,
-					TextStrokeTransparency = 0
+					TextTransparency = 0.55,
+					TextStrokeTransparency = 0.950
 				})
 
 				local siz = Library:GetTextSize(Tip.Text,14,Tip.Font);
@@ -3201,8 +3202,8 @@ function Library:CreateWindow(setup)
 				Tip.Position = UDim2.fromOffset(pos.X + (siz.X / 5),pos.Y - 58)
 			else
 				Library:Tween(Tip,Library.TweenLibrary.FastEffect,{
-					TextTransparency = 0,
-					TextStrokeTransparency = 0
+					TextTransparency = 1,
+					TextStrokeTransparency = 1
 				})
 			end;
 		end)
@@ -3224,7 +3225,7 @@ function Library:CreateWindow(setup)
 		TFrame.Name = "TFrame"
 		TFrame.Parent = DataScrollingFrame
 		TFrame.BackgroundColor3 = Library.Colors.Default
-		TFrame.BackgroundTransparency = 0
+		TFrame.BackgroundTransparency = 0.250
 		TFrame.BorderColor3 = Color3.fromRGB(0, 0, 0)
 		TFrame.BorderSizePixel = 0
 		TFrame.Size = UDim2.new(0.99, 0, 0, Library.TabButtonHeight)
@@ -3245,7 +3246,7 @@ function Library:CreateWindow(setup)
 		DropShadow.SliceCenter = Rect.new(95, 103, 894, 902)
 		DropShadow.SliceScale = 0.050
 
-		UIStroke.Transparency = 0
+		UIStroke.Transparency = 0.850
 		UIStroke.Color = Color3.fromRGB(156, 156, 156)
 		UIStroke.Parent = TFrame
 
@@ -3279,7 +3280,7 @@ function Library:CreateWindow(setup)
 		Title.TextScaled = true
 		Title.TextSize = 14.000
 		Title.TextStrokeColor3 = Library.Colors.TextColor
-		Title.TextStrokeTransparency = 0
+		Title.TextStrokeTransparency = 0.950
 		Title.TextWrapped = true
 		Title.TextXAlignment = Enum.TextXAlignment.Left
 		Title.RichText = true;
@@ -3288,7 +3289,7 @@ function Library:CreateWindow(setup)
 		Arrow.Parent = TFrame
 		Arrow.AnchorPoint = Vector2.new(1, 0.5)
 		Arrow.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-		Arrow.BackgroundTransparency = 0
+		Arrow.BackgroundTransparency = 1.000
 		Arrow.BorderColor3 = Color3.fromRGB(0, 0, 0)
 		Arrow.BorderSizePixel = 0
 		Arrow.Position = UDim2.new(0.980000019, 0, 0.5, 0)
@@ -3296,7 +3297,7 @@ function Library:CreateWindow(setup)
 		Arrow.SizeConstraint = Enum.SizeConstraint.RelativeYY
 		Arrow.ZIndex = 5
 		Arrow.Image = "rbxassetid://10709791437"
-		Arrow.ImageTransparency = 0
+		Arrow.ImageTransparency = 1
 
 		Button.Name = "Button"
 		Button.Parent = TFrame
@@ -3309,7 +3310,7 @@ function Library:CreateWindow(setup)
 		Button.Font = Enum.Font.SourceSans
 		Button.TextColor3 = Color3.fromRGB(0, 0, 0)
 		Button.TextSize = 14.000
-		Button.TextTransparency = 0
+		Button.TextTransparency = 1.000
 
 		local Root = {};
 		local TabCenterFrame = Instance.new("Frame")
@@ -3320,7 +3321,7 @@ function Library:CreateWindow(setup)
 		TabCenterFrame.Parent = TabFrames
 		TabCenterFrame.AnchorPoint = Vector2.new(0.5, 0.5)
 		TabCenterFrame.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-		TabCenterFrame.BackgroundTransparency = 0
+		TabCenterFrame.BackgroundTransparency = 1.000
 		TabCenterFrame.BorderColor3 = Color3.fromRGB(0, 0, 0)
 		TabCenterFrame.BorderSizePixel = 0
 		TabCenterFrame.Position = UDim2.new(0.5, 0, 0.9, 0)
@@ -3331,7 +3332,7 @@ function Library:CreateWindow(setup)
 		ScrollingFrame.Active = true
 		ScrollingFrame.AnchorPoint = Vector2.new(0.5, 0.5)
 		ScrollingFrame.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-		ScrollingFrame.BackgroundTransparency = 0
+		ScrollingFrame.BackgroundTransparency = 1.000
 		ScrollingFrame.BorderColor3 = Color3.fromRGB(0, 0, 0)
 		ScrollingFrame.BorderSizePixel = 0
 		ScrollingFrame.ClipsDescendants = false
@@ -3412,7 +3413,7 @@ function Library:CreateWindow(setup)
 			BlockLabel.Name = "BlockLabel"
 			BlockLabel.Parent = ScrollingFrame
 			BlockLabel.BackgroundColor3 = Library.Colors.Default
-			BlockLabel.BackgroundTransparency = 0
+			BlockLabel.BackgroundTransparency = 1.000
 			BlockLabel.BorderColor3 = Color3.fromRGB(0, 0, 0)
 			BlockLabel.BorderSizePixel = 0
 			BlockLabel.Size = UDim2.new(0.99000001, 0, 0, 25)
@@ -3421,7 +3422,7 @@ function Library:CreateWindow(setup)
 			TextLabel.Parent = BlockLabel
 			TextLabel.AnchorPoint = Vector2.new(0, 0.5)
 			TextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-			TextLabel.BackgroundTransparency = 0
+			TextLabel.BackgroundTransparency = 1.000
 			TextLabel.BorderColor3 = Color3.fromRGB(0, 0, 0)
 			TextLabel.BorderSizePixel = 0
 			TextLabel.Position = UDim2.new(0.0199999996, 0, 0.5, 0)
@@ -3433,7 +3434,7 @@ function Library:CreateWindow(setup)
 			TextLabel.TextScaled = true
 			TextLabel.TextSize = 14.000
 			TextLabel.TextStrokeColor3 = Library.Colors.TextColor
-			TextLabel.TextStrokeTransparency = 0
+			TextLabel.TextStrokeTransparency = 0.950
 			TextLabel.TextWrapped = true
 			TextLabel.TextXAlignment = Enum.TextXAlignment.Left
 			TextLabel.RichText = true
@@ -3467,7 +3468,7 @@ function Library:CreateWindow(setup)
 			ButtonBlock.Name = "ButtonBlock"
 			ButtonBlock.Parent = ScrollingFrame
 			ButtonBlock.BackgroundColor3 = Library.Colors.Default
-			ButtonBlock.BackgroundTransparency = 0
+			ButtonBlock.BackgroundTransparency = 0.250
 			ButtonBlock.BorderColor3 = Color3.fromRGB(0, 0, 0)
 			ButtonBlock.BorderSizePixel = 0
 			ButtonBlock.Size = UDim2.new(0.99000001, 0, 0, Library.ItemHeight)
@@ -3488,14 +3489,14 @@ function Library:CreateWindow(setup)
 			DropShadow.SliceCenter = Rect.new(95, 103, 894, 902)
 			DropShadow.SliceScale = 0.050
 
-			UIStroke.Transparency = 0
+			UIStroke.Transparency = 0.850
 			UIStroke.Color = Color3.fromRGB(156, 156, 156)
 			UIStroke.Parent = ButtonBlock
 
 			TextLabel.Parent = ButtonBlock
 			TextLabel.AnchorPoint = Vector2.new(0, 0.5)
 			TextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-			TextLabel.BackgroundTransparency = 0
+			TextLabel.BackgroundTransparency = 1.000
 			TextLabel.BorderColor3 = Color3.fromRGB(0, 0, 0)
 			TextLabel.BorderSizePixel = 0
 			TextLabel.Position = UDim2.new(0.0199999996, 0, 0.5, 0)
@@ -3507,7 +3508,7 @@ function Library:CreateWindow(setup)
 			TextLabel.TextScaled = true
 			TextLabel.TextSize = 14.000
 			TextLabel.TextStrokeColor3 = Library.Colors.TextColor
-			TextLabel.TextStrokeTransparency = 0
+			TextLabel.TextStrokeTransparency = 0.950
 			TextLabel.TextWrapped = true
 			TextLabel.TextXAlignment = Enum.TextXAlignment.Left
 			TextLabel.RichText = true
@@ -3516,7 +3517,7 @@ function Library:CreateWindow(setup)
 			Arrow.Parent = ButtonBlock
 			Arrow.AnchorPoint = Vector2.new(1, 0.5)
 			Arrow.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-			Arrow.BackgroundTransparency = 0
+			Arrow.BackgroundTransparency = 1.000
 			Arrow.BorderColor3 = Color3.fromRGB(0, 0, 0)
 			Arrow.BorderSizePixel = 0
 			Arrow.Position = UDim2.new(0.980000019, 0, 0.5, 0)
@@ -3524,12 +3525,12 @@ function Library:CreateWindow(setup)
 			Arrow.SizeConstraint = Enum.SizeConstraint.RelativeYY
 			Arrow.ZIndex = 11
 			Arrow.Image = "rbxassetid://10709791437"
-			Arrow.ImageTransparency = 0
+			Arrow.ImageTransparency = 0.150
 
 			Button.Name = "Button"
 			Button.Parent = ButtonBlock
 			Button.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-			Button.BackgroundTransparency = 0
+			Button.BackgroundTransparency = 1.000
 			Button.BorderColor3 = Color3.fromRGB(0, 0, 0)
 			Button.BorderSizePixel = 0
 			Button.Size = UDim2.new(1, 0, 1, 0)
@@ -3537,7 +3538,7 @@ function Library:CreateWindow(setup)
 			Button.Font = Enum.Font.SourceSans
 			Button.TextColor3 = Color3.fromRGB(0, 0, 0)
 			Button.TextSize = 14.000
-			Button.TextTransparency = 0
+			Button.TextTransparency = 1.000
 
 			Library:MakeDrop(ButtonBlock , UIStroke , Library.Colors.Hightlight)
 
@@ -3605,7 +3606,7 @@ function Library:CreateWindow(setup)
 			ToggleBlock.Name = "ToggleBlock"
 			ToggleBlock.Parent = ScrollingFrame
 			ToggleBlock.BackgroundColor3 = Library.Colors.Default
-			ToggleBlock.BackgroundTransparency = 0
+			ToggleBlock.BackgroundTransparency = 0.250
 			ToggleBlock.BorderColor3 = Color3.fromRGB(0, 0, 0)
 			ToggleBlock.BorderSizePixel = 0
 			ToggleBlock.Size = UDim2.new(0.99000001, 0, 0, Library.ItemHeight)
@@ -3626,7 +3627,7 @@ function Library:CreateWindow(setup)
 			DropShadow.SliceCenter = Rect.new(95, 103, 894, 902)
 			DropShadow.SliceScale = 0.050
 
-			UIStroke.Transparency = 0
+			UIStroke.Transparency = 0.850
 			UIStroke.Color = Color3.fromRGB(156, 156, 156)
 			UIStroke.Parent = ToggleBlock
 
@@ -3634,7 +3635,7 @@ function Library:CreateWindow(setup)
 			TextLabel.Parent = ToggleBlock
 			TextLabel.AnchorPoint = Vector2.new(0, 0.5)
 			TextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-			TextLabel.BackgroundTransparency = 0
+			TextLabel.BackgroundTransparency = 1.000
 			TextLabel.BorderColor3 = Color3.fromRGB(0, 0, 0)
 			TextLabel.BorderSizePixel = 0
 			TextLabel.Position = UDim2.new(0.0199999996, 0, 0.5, 0)
@@ -3646,7 +3647,7 @@ function Library:CreateWindow(setup)
 			TextLabel.TextScaled = true
 			TextLabel.TextSize = 14.000
 			TextLabel.TextStrokeColor3 = Library.Colors.TextColor
-			TextLabel.TextStrokeTransparency = 0
+			TextLabel.TextStrokeTransparency = 0.950
 			TextLabel.TextWrapped = true
 			TextLabel.TextXAlignment = Enum.TextXAlignment.Left
 
@@ -3654,14 +3655,14 @@ function Library:CreateWindow(setup)
 			Block.Parent = ToggleBlock
 			Block.AnchorPoint = Vector2.new(1, 0.5)
 			Block.BackgroundColor3 = Library.Colors.Default
-			Block.BackgroundTransparency = 0
+			Block.BackgroundTransparency = 0.500
 			Block.BorderColor3 = Color3.fromRGB(0, 0, 0)
 			Block.BorderSizePixel = 0
 			Block.Position = UDim2.new(0.980000019, 0, 0.5, 0)
 			Block.Size = UDim2.new(0, 35, 0.5, 0)
 			Block.ZIndex = 14
 
-			UIStroke_2.Transparency = 0
+			UIStroke_2.Transparency = 0.850
 			UIStroke_2.Color = Color3.fromRGB(156, 156, 156)
 			UIStroke_2.Parent = Block
 
@@ -3672,7 +3673,7 @@ function Library:CreateWindow(setup)
 			ValueBlock.Parent = Block
 			ValueBlock.AnchorPoint = Vector2.new(0.5, 0.5)
 			ValueBlock.BackgroundColor3 = Library.Colors.Hightlight
-			ValueBlock.BackgroundTransparency = 0
+			ValueBlock.BackgroundTransparency = 0.250
 			ValueBlock.BorderColor3 = Color3.fromRGB(0, 0, 0)
 			ValueBlock.BorderSizePixel = 0
 			ValueBlock.Position = UDim2.new(0.75, 0, 0.5, 0)
@@ -3686,7 +3687,7 @@ function Library:CreateWindow(setup)
 			Button.Name = "Button"
 			Button.Parent = ToggleBlock
 			Button.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-			Button.BackgroundTransparency = 0
+			Button.BackgroundTransparency = 1.000
 			Button.BorderColor3 = Color3.fromRGB(0, 0, 0)
 			Button.BorderSizePixel = 0
 			Button.Size = UDim2.new(1, 0, 1, 0)
@@ -3694,7 +3695,7 @@ function Library:CreateWindow(setup)
 			Button.Font = Enum.Font.SourceSans
 			Button.TextColor3 = Color3.fromRGB(0, 0, 0)
 			Button.TextSize = 14.000
-			Button.TextTransparency = 0
+			Button.TextTransparency = 1.000
 
 			Library:MakeDrop(ToggleBlock , UIStroke , Library.Colors.Hightlight)
 
@@ -3763,7 +3764,7 @@ function Library:CreateWindow(setup)
 			TextBoxBlock.Name = "TextBoxBlock"
 			TextBoxBlock.Parent = ScrollingFrame
 			TextBoxBlock.BackgroundColor3 = Library.Colors.Default
-			TextBoxBlock.BackgroundTransparency = 0
+			TextBoxBlock.BackgroundTransparency = 0.250
 			TextBoxBlock.BorderColor3 = Color3.fromRGB(0, 0, 0)
 			TextBoxBlock.BorderSizePixel = 0
 			TextBoxBlock.Size = UDim2.new(0.99000001, 0, 0, Library.ItemHeight)
@@ -3784,14 +3785,14 @@ function Library:CreateWindow(setup)
 			DropShadow.SliceCenter = Rect.new(95, 103, 894, 902)
 			DropShadow.SliceScale = 0.050
 
-			UIStroke.Transparency = 0
+			UIStroke.Transparency = 0.850
 			UIStroke.Color = Color3.fromRGB(156, 156, 156)
 			UIStroke.Parent = TextBoxBlock
 
 			TextLabel.Parent = TextBoxBlock
 			TextLabel.AnchorPoint = Vector2.new(0, 0.5)
 			TextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-			TextLabel.BackgroundTransparency = 0
+			TextLabel.BackgroundTransparency = 1.000
 			TextLabel.BorderColor3 = Color3.fromRGB(0, 0, 0)
 			TextLabel.BorderSizePixel = 0
 			TextLabel.Position = UDim2.new(0.0199999996, 0, 0.5, 0)
@@ -3803,7 +3804,7 @@ function Library:CreateWindow(setup)
 			TextLabel.TextScaled = true
 			TextLabel.TextSize = 14.000
 			TextLabel.TextStrokeColor3 = Library.Colors.TextColor
-			TextLabel.TextStrokeTransparency = 0
+			TextLabel.TextStrokeTransparency = 0.950
 			TextLabel.TextWrapped = true
 			TextLabel.TextXAlignment = Enum.TextXAlignment.Left
 			TextLabel.RichText = true
@@ -3812,14 +3813,14 @@ function Library:CreateWindow(setup)
 			Block.Parent = TextBoxBlock
 			Block.AnchorPoint = Vector2.new(1, 0.5)
 			Block.BackgroundColor3 = Library.Colors.Default
-			Block.BackgroundTransparency = 0
+			Block.BackgroundTransparency = 0.500
 			Block.BorderColor3 = Color3.fromRGB(0, 0, 0)
 			Block.BorderSizePixel = 0
 			Block.Position = UDim2.new(0.980000019, 0, 0.5, 0)
 			Block.Size = UDim2.new(0, 50, 0.5, 0)
 			Block.ZIndex = 14
 
-			UIStroke_2.Transparency = 0
+			UIStroke_2.Transparency = 0.850
 			UIStroke_2.Color = Color3.fromRGB(156, 156, 156)
 			UIStroke_2.Parent = Block
 
@@ -3829,7 +3830,7 @@ function Library:CreateWindow(setup)
 			TextBox.Parent = Block
 			TextBox.AnchorPoint = Vector2.new(0.5, 0.5)
 			TextBox.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-			TextBox.BackgroundTransparency = 0
+			TextBox.BackgroundTransparency = 1.000
 			TextBox.BorderColor3 = Color3.fromRGB(0, 0, 0)
 			TextBox.BorderSizePixel = 0
 			TextBox.Position = UDim2.new(0.5, 0, 0.5, 0)
@@ -3842,7 +3843,7 @@ function Library:CreateWindow(setup)
 			TextBox.PlaceholderText = setup.PlaceHolder;
 			TextBox.TextColor3 = Library.Colors.TextColor
 			TextBox.TextSize = 12.000
-			TextBox.TextStrokeTransparency = 0
+			TextBox.TextStrokeTransparency = 0.950
 			TextBox.TextWrapped = true
 
 			local PlaceHolder = Library:GetTextSize(setup.PlaceHolder,13,TextBox.Font);
@@ -3930,7 +3931,7 @@ function Library:CreateWindow(setup)
 			ParagraphBlock.Name = "ParagraphBlock"
 			ParagraphBlock.Parent = ScrollingFrame
 			ParagraphBlock.BackgroundColor3 = Library.Colors.Default
-			ParagraphBlock.BackgroundTransparency = 0
+			ParagraphBlock.BackgroundTransparency = 0.250
 			ParagraphBlock.BorderColor3 = Color3.fromRGB(0, 0, 0)
 			ParagraphBlock.BorderSizePixel = 0
 			ParagraphBlock.Size = UDim2.new(0.99000001, 0, 0, 24)
@@ -3951,7 +3952,7 @@ function Library:CreateWindow(setup)
 			DropShadow.SliceCenter = Rect.new(95, 103, 894, 902)
 			DropShadow.SliceScale = 0.050
 
-			UIStroke.Transparency = 0
+			UIStroke.Transparency = 0.850
 			UIStroke.Color = Color3.fromRGB(156, 156, 156)
 			UIStroke.Parent = ParagraphBlock
 
@@ -3959,7 +3960,7 @@ function Library:CreateWindow(setup)
 			Title.Name = "Title"
 			Title.Parent = ParagraphBlock
 			Title.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-			Title.BackgroundTransparency = 0
+			Title.BackgroundTransparency = 1.000
 			Title.BorderColor3 = Color3.fromRGB(0, 0, 0)
 			Title.BorderSizePixel = 0
 			Title.Position = UDim2.new(0, 5, 0, 5)
@@ -3971,7 +3972,7 @@ function Library:CreateWindow(setup)
 			Title.TextScaled = true
 			Title.TextSize = 14.000
 			Title.TextStrokeColor3 = Library.Colors.TextColor
-			Title.TextStrokeTransparency = 0
+			Title.TextStrokeTransparency = 0.950
 			Title.TextWrapped = true
 			Title.TextXAlignment = Enum.TextXAlignment.Left
 			Title.RichText = true
@@ -3979,7 +3980,7 @@ function Library:CreateWindow(setup)
 			Description.Name = "Description"
 			Description.Parent = ParagraphBlock
 			Description.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-			Description.BackgroundTransparency = 0
+			Description.BackgroundTransparency = 1.000
 			Description.BorderColor3 = Color3.fromRGB(0, 0, 0)
 			Description.BorderSizePixel = 0
 			Description.Position = UDim2.new(0, 5, 0, 21)
@@ -3991,8 +3992,8 @@ function Library:CreateWindow(setup)
 			Description.TextColor3 = Library.Colors.TextColor
 			Description.TextSize = 13.000
 			Description.TextStrokeColor3 = Library.Colors.TextColor
-			Description.TextStrokeTransparency = 0
-			Description.TextTransparency = 0
+			Description.TextStrokeTransparency = 0.950
+			Description.TextTransparency = 0.500
 			Description.TextWrapped = true
 			Description.TextXAlignment = Enum.TextXAlignment.Left
 			Description.TextYAlignment = Enum.TextYAlignment.Top
@@ -4066,7 +4067,7 @@ function Library:CreateWindow(setup)
 			SliderBlock.Name = "SliderBlock"
 			SliderBlock.Parent = ScrollingFrame
 			SliderBlock.BackgroundColor3 = Library.Colors.Default
-			SliderBlock.BackgroundTransparency = 0
+			SliderBlock.BackgroundTransparency = 0.250
 			SliderBlock.BorderColor3 = Color3.fromRGB(0, 0, 0)
 			SliderBlock.BorderSizePixel = 0
 			SliderBlock.Size = UDim2.new(0.99000001, 0, 0, Library.ItemHeight)
@@ -4087,7 +4088,7 @@ function Library:CreateWindow(setup)
 			DropShadow.SliceCenter = Rect.new(95, 103, 894, 902)
 			DropShadow.SliceScale = 0.050
 
-			UIStroke.Transparency = 0
+			UIStroke.Transparency = 0.850
 			UIStroke.Color = Color3.fromRGB(156, 156, 156)
 			UIStroke.Parent = SliderBlock
 
@@ -4095,7 +4096,7 @@ function Library:CreateWindow(setup)
 			TextLabel.Parent = SliderBlock
 			TextLabel.AnchorPoint = Vector2.new(0, 0.5)
 			TextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-			TextLabel.BackgroundTransparency = 0
+			TextLabel.BackgroundTransparency = 1.000
 			TextLabel.BorderColor3 = Color3.fromRGB(0, 0, 0)
 			TextLabel.BorderSizePixel = 0
 			TextLabel.Position = UDim2.new(0.0199999996, 0, 0.5, 0)
@@ -4107,7 +4108,7 @@ function Library:CreateWindow(setup)
 			TextLabel.TextScaled = true
 			TextLabel.TextSize = 14.000
 			TextLabel.TextStrokeColor3 = Library.Colors.TextColor
-			TextLabel.TextStrokeTransparency = 0
+			TextLabel.TextStrokeTransparency = 0.950
 			TextLabel.TextWrapped = true
 			TextLabel.TextXAlignment = Enum.TextXAlignment.Left
 
@@ -4115,14 +4116,14 @@ function Library:CreateWindow(setup)
 			Block.Parent = SliderBlock
 			Block.AnchorPoint = Vector2.new(1, 0.5)
 			Block.BackgroundColor3 = Library.Colors.Default
-			Block.BackgroundTransparency = 0
+			Block.BackgroundTransparency = 0.500
 			Block.BorderColor3 = Color3.fromRGB(0, 0, 0)
 			Block.BorderSizePixel = 0
 			Block.Position = UDim2.new(0.980000019, 0, 0.649999976, 0)
 			Block.Size = UDim2.new(0, 95, 0.45, 0)
 			Block.ZIndex = 14
 
-			UIStroke_2.Transparency = 0
+			UIStroke_2.Transparency = 0.850
 			UIStroke_2.Color = Color3.fromRGB(156, 156, 156)
 			UIStroke_2.Parent = Block
 
@@ -4143,7 +4144,7 @@ function Library:CreateWindow(setup)
 			UICorner_2.CornerRadius = UDim.new(1, 0)
 			UICorner_2.Parent = Move
 
-			UIStroke_3.Transparency = 0
+			UIStroke_3.Transparency = 0.850
 			UIStroke_3.Color = Color3.fromRGB(156, 156, 156)
 			UIStroke_3.Parent = Move
 
@@ -4151,7 +4152,7 @@ function Library:CreateWindow(setup)
 			ValueText.Parent = SliderBlock
 			ValueText.AnchorPoint = Vector2.new(0, 0.5)
 			ValueText.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-			ValueText.BackgroundTransparency = 0
+			ValueText.BackgroundTransparency = 1.000
 			ValueText.BorderColor3 = Color3.fromRGB(0, 0, 0)
 			ValueText.BorderSizePixel = 0
 			ValueText.Position = UDim2.new(0.0199999996, 0, 0.239999995, 0)
@@ -4163,7 +4164,7 @@ function Library:CreateWindow(setup)
 			ValueText.TextScaled = true
 			ValueText.TextSize = 14.000
 			ValueText.TextStrokeColor3 = Library.Colors.TextColor
-			ValueText.TextStrokeTransparency = 0
+			ValueText.TextStrokeTransparency = 0.950
 			ValueText.TextWrapped = true
 			ValueText.TextXAlignment = Enum.TextXAlignment.Right
 
@@ -4288,7 +4289,7 @@ function Library:CreateWindow(setup)
 			KeybindBlock.Name = "KeybindBlock"
 			KeybindBlock.Parent = ScrollingFrame
 			KeybindBlock.BackgroundColor3 = Library.Colors.Default
-			KeybindBlock.BackgroundTransparency = 0
+			KeybindBlock.BackgroundTransparency = 0.250
 			KeybindBlock.BorderColor3 = Color3.fromRGB(0, 0, 0)
 			KeybindBlock.BorderSizePixel = 0
 			KeybindBlock.Size = UDim2.new(0.99000001, 0, 0, Library.ItemHeight)
@@ -4309,14 +4310,14 @@ function Library:CreateWindow(setup)
 			DropShadow.SliceCenter = Rect.new(95, 103, 894, 902)
 			DropShadow.SliceScale = 0.050
 
-			UIStroke.Transparency = 0
+			UIStroke.Transparency = 0.850
 			UIStroke.Color = Color3.fromRGB(156, 156, 156)
 			UIStroke.Parent = KeybindBlock
 
 			TextLabel.Parent = KeybindBlock
 			TextLabel.AnchorPoint = Vector2.new(0, 0.5)
 			TextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-			TextLabel.BackgroundTransparency = 0
+			TextLabel.BackgroundTransparency = 1.000
 			TextLabel.BorderColor3 = Color3.fromRGB(0, 0, 0)
 			TextLabel.BorderSizePixel = 0
 			TextLabel.Position = UDim2.new(0.0199999996, 0, 0.5, 0)
@@ -4328,7 +4329,7 @@ function Library:CreateWindow(setup)
 			TextLabel.TextScaled = true
 			TextLabel.TextSize = 14.000
 			TextLabel.TextStrokeColor3 = Library.Colors.TextColor
-			TextLabel.TextStrokeTransparency = 0
+			TextLabel.TextStrokeTransparency = 0.950
 			TextLabel.TextWrapped = true
 			TextLabel.TextXAlignment = Enum.TextXAlignment.Left
 			TextLabel.RichText = true
@@ -4337,14 +4338,14 @@ function Library:CreateWindow(setup)
 			Block.Parent = KeybindBlock
 			Block.AnchorPoint = Vector2.new(1, 0.5)
 			Block.BackgroundColor3 = Library.Colors.Default
-			Block.BackgroundTransparency = 0
+			Block.BackgroundTransparency = 0.500
 			Block.BorderColor3 = Color3.fromRGB(0, 0, 0)
 			Block.BorderSizePixel = 0
 			Block.Position = UDim2.new(0.980000019, 0, 0.5, 0)
 			Block.Size = UDim2.new(0, 50, 0.5, 0)
 			Block.ZIndex = 14
 
-			UIStroke_2.Transparency = 0
+			UIStroke_2.Transparency = 0.850
 			UIStroke_2.Color = Color3.fromRGB(156, 156, 156)
 			UIStroke_2.Parent = Block
 
@@ -4355,7 +4356,7 @@ function Library:CreateWindow(setup)
 			ValueText.Parent = Block
 			ValueText.AnchorPoint = Vector2.new(0.5, 0.5)
 			ValueText.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-			ValueText.BackgroundTransparency = 0
+			ValueText.BackgroundTransparency = 1.000
 			ValueText.BorderColor3 = Color3.fromRGB(0, 0, 0)
 			ValueText.BorderSizePixel = 0
 			ValueText.Position = UDim2.new(0.5, 0, 0.5, 0)
@@ -4367,13 +4368,13 @@ function Library:CreateWindow(setup)
 			ValueText.TextScaled = true
 			ValueText.TextSize = 14.000
 			ValueText.TextStrokeColor3 = Library.Colors.TextColor
-			ValueText.TextStrokeTransparency = 0
+			ValueText.TextStrokeTransparency = 0.950
 			ValueText.TextWrapped = true
 
 			Button.Name = "Button"
 			Button.Parent = KeybindBlock
 			Button.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-			Button.BackgroundTransparency = 0
+			Button.BackgroundTransparency = 1.000
 			Button.BorderColor3 = Color3.fromRGB(0, 0, 0)
 			Button.BorderSizePixel = 0
 			Button.Size = UDim2.new(1, 0, 1, 0)
@@ -4381,7 +4382,7 @@ function Library:CreateWindow(setup)
 			Button.Font = Enum.Font.SourceSans
 			Button.TextColor3 = Color3.fromRGB(0, 0, 0)
 			Button.TextSize = 14.000
-			Button.TextTransparency = 0
+			Button.TextTransparency = 1.000
 
 			Library:MakeDrop(KeybindBlock , UIStroke , Library.Colors.Hightlight);
 
@@ -4514,14 +4515,14 @@ function Library:CreateWindow(setup)
 			DropShadow.SliceCenter = Rect.new(95, 103, 894, 902)
 			DropShadow.SliceScale = 0.050
 
-			UIStroke.Transparency = 0
+			UIStroke.Transparency = 0.850
 			UIStroke.Color = Color3.fromRGB(156, 156, 156)
 			UIStroke.Parent = DropdownBlock
 
 			TextLabel.Parent = DropdownBlock
 			TextLabel.AnchorPoint = Vector2.new(0, 0.5)
 			TextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-			TextLabel.BackgroundTransparency = 0
+			TextLabel.BackgroundTransparency = 1.000
 			TextLabel.BorderColor3 = Color3.fromRGB(0, 0, 0)
 			TextLabel.BorderSizePixel = 0
 			TextLabel.Position = UDim2.new(0.0199999996, 0, 0.5, 0)
@@ -4533,7 +4534,7 @@ function Library:CreateWindow(setup)
 			TextLabel.TextScaled = true
 			TextLabel.TextSize = 14.000
 			TextLabel.TextStrokeColor3 = Library.Colors.TextColor
-			TextLabel.TextStrokeTransparency = 0
+			TextLabel.TextStrokeTransparency = 0.950
 			TextLabel.TextWrapped = true
 			TextLabel.TextXAlignment = Enum.TextXAlignment.Left
 			TextLabel.RichText = true
@@ -4542,14 +4543,14 @@ function Library:CreateWindow(setup)
 			Block.Parent = DropdownBlock
 			Block.AnchorPoint = Vector2.new(1, 0.5)
 			Block.BackgroundColor3 = Library.Colors.Default
-			Block.BackgroundTransparency = 0
+			Block.BackgroundTransparency = 0.500
 			Block.BorderColor3 = Color3.fromRGB(0, 0, 0)
 			Block.BorderSizePixel = 0
 			Block.Position = UDim2.new(0.980000019, 0, 0.5, 0)
 			Block.Size = UDim2.new(0, 75, 0.600000024, 0)
 			Block.ZIndex = 14
 
-			UIStroke_2.Transparency = 0
+			UIStroke_2.Transparency = 0.850
 			UIStroke_2.Color = Color3.fromRGB(156, 156, 156)
 			UIStroke_2.Parent = Block
 
@@ -4559,7 +4560,7 @@ function Library:CreateWindow(setup)
 			Button.Name = "Button"
 			Button.Parent = Block
 			Button.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-			Button.BackgroundTransparency = 0
+			Button.BackgroundTransparency = 1.000
 			Button.BorderColor3 = Color3.fromRGB(0, 0, 0)
 			Button.BorderSizePixel = 0
 			Button.Size = UDim2.new(1, 0, 1, 0)
@@ -4567,13 +4568,13 @@ function Library:CreateWindow(setup)
 			Button.Font = Enum.Font.SourceSans
 			Button.TextColor3 = Color3.fromRGB(0, 0, 0)
 			Button.TextSize = 14.000
-			Button.TextTransparency = 0
+			Button.TextTransparency = 1.000
 
 			ValueText.Name = "ValueText"
 			ValueText.Parent = Block
 			ValueText.AnchorPoint = Vector2.new(0.5, 0.5)
 			ValueText.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-			ValueText.BackgroundTransparency = 0
+			ValueText.BackgroundTransparency = 1.000
 			ValueText.BorderColor3 = Color3.fromRGB(0, 0, 0)
 			ValueText.BorderSizePixel = 0
 			ValueText.Position = UDim2.new(0.5, 0, 0.5, 0)
@@ -4585,7 +4586,7 @@ function Library:CreateWindow(setup)
 			ValueText.TextScaled = true
 			ValueText.TextSize = 14.000
 			ValueText.TextStrokeColor3 = Library.Colors.TextColor
-			ValueText.TextStrokeTransparency = 0
+			ValueText.TextStrokeTransparency = 0.950
 			ValueText.TextWrapped = true
 
 			Library:MakeDrop(DropdownBlock , UIStroke , Library.Colors.Hightlight)
@@ -4671,7 +4672,7 @@ function Library:CreateWindow(setup)
 			ImageBlock.Name = "ImageBlock"
 			ImageBlock.Parent = ScrollingFrame
 			ImageBlock.BackgroundColor3 = Library.Colors.Default
-			ImageBlock.BackgroundTransparency = 0
+			ImageBlock.BackgroundTransparency = 0.250
 			ImageBlock.BorderColor3 = Color3.fromRGB(0, 0, 0)
 			ImageBlock.BorderSizePixel = 0
 			ImageBlock.Size = UDim2.new(0.99000001, 0, 0, 150)
@@ -4691,14 +4692,14 @@ function Library:CreateWindow(setup)
 			DropShadow.SliceCenter = Rect.new(95, 103, 894, 902)
 			DropShadow.SliceScale = 0.050
 
-			UIStroke.Transparency = 0
+			UIStroke.Transparency = 0.850
 			UIStroke.Color = Color3.fromRGB(156, 156, 156)
 			UIStroke.Parent = ImageBlock
 
 			Title.Name = "Title"
 			Title.Parent = ImageBlock
 			Title.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-			Title.BackgroundTransparency = 0
+			Title.BackgroundTransparency = 1.000
 			Title.BorderColor3 = Color3.fromRGB(0, 0, 0)
 			Title.BorderSizePixel = 0
 			Title.Position = UDim2.new(0, 5, 0, 5)
@@ -4710,7 +4711,7 @@ function Library:CreateWindow(setup)
 			Title.TextScaled = true
 			Title.TextSize = 14.000
 			Title.TextStrokeColor3 = Color3.fromRGB(191, 193, 195)
-			Title.TextStrokeTransparency = 0
+			Title.TextStrokeTransparency = 0.950
 			Title.TextColor3 = Library.Colors.TextColor;
 			Title.TextWrapped = true
 			Title.TextXAlignment = Enum.TextXAlignment.Left
@@ -4718,7 +4719,7 @@ function Library:CreateWindow(setup)
 			ImageLabel.Parent = ImageBlock
 			ImageLabel.AnchorPoint = Vector2.new(0.5, 0)
 			ImageLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-			ImageLabel.BackgroundTransparency = 0
+			ImageLabel.BackgroundTransparency = 1.000
 			ImageLabel.BorderColor3 = Color3.fromRGB(0, 0, 0)
 			ImageLabel.BorderSizePixel = 0
 			ImageLabel.Position = UDim2.new(0.5, 0, 0, 23)
@@ -4776,7 +4777,7 @@ function Library:CreateWindow(setup)
 		Black.Parent = MainFrame
 		Black.AnchorPoint = Vector2.new(0.5, 0.5)
 		Black.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-		Black.BackgroundTransparency = 0--0.550
+		Black.BackgroundTransparency = 1--0.550
 		Black.BorderColor3 = Color3.fromRGB(0, 0, 0)
 		Black.BorderSizePixel = 0
 		Black.Position = UDim2.new(0.5, 0, 0.5, 0)
@@ -4815,7 +4816,7 @@ function Library:CreateWindow(setup)
 			Message.Active = true
 			Message.AnchorPoint = Vector2.new(0.5, 0.5)
 			Message.BackgroundColor3 = Color3.fromRGB(32, 33, 36)
-			Message.BackgroundTransparency = 0
+			Message.BackgroundTransparency = 0.250
 			Message.BorderColor3 = Color3.fromRGB(0, 0, 0)
 			Message.BorderSizePixel = 0
 			Message.Position = UDim2.new(0.5, 0, 0.5, 0)
@@ -4838,7 +4839,7 @@ function Library:CreateWindow(setup)
 			DropShadow.SliceCenter = Rect.new(95, 103, 894, 902)
 			DropShadow.SliceScale = 0.050
 
-			UIStroke.Transparency = 0
+			UIStroke.Transparency = 0.850
 			UIStroke.Color = Color3.fromRGB(156, 156, 156)
 			UIStroke.Parent = Message
 
@@ -4850,7 +4851,7 @@ function Library:CreateWindow(setup)
 			Title.Parent = Message
 			Title.AnchorPoint = Vector2.new(0.5, 0)
 			Title.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-			Title.BackgroundTransparency = 0
+			Title.BackgroundTransparency = 1.000
 			Title.BorderColor3 = Color3.fromRGB(0, 0, 0)
 			Title.BorderSizePixel = 0
 			Title.Position = UDim2.new(0.5, 0, 0, 10)
@@ -4862,13 +4863,13 @@ function Library:CreateWindow(setup)
 			Title.TextScaled = true
 			Title.TextSize = 16.000
 			Title.TextStrokeColor3 = Color3.fromRGB(220, 224, 234)
-			Title.TextStrokeTransparency = 0
+			Title.TextStrokeTransparency = 0.950
 
 			Description.Name = "Description"
 			Description.Parent = Message
 			Description.AnchorPoint = Vector2.new(0.5, 0)
 			Description.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-			Description.BackgroundTransparency = 0
+			Description.BackgroundTransparency = 1.000
 			Description.BorderColor3 = Color3.fromRGB(0, 0, 0)
 			Description.BorderSizePixel = 0
 			Description.Position = UDim2.new(0.5, 0, 0, 35)
@@ -4880,8 +4881,8 @@ function Library:CreateWindow(setup)
 			Description.TextScaled = true
 			Description.TextSize = 14.000
 			Description.TextStrokeColor3 = Color3.fromRGB(220, 224, 234)
-			Description.TextStrokeTransparency = 0
-			Description.TextTransparency = 0
+			Description.TextStrokeTransparency = 0.950
+			Description.TextTransparency = 0.500
 
 			OpenBackground();
 
@@ -4989,7 +4990,7 @@ function Library:CreateWindow(setup)
 			Dialog.Parent = Black
 			Dialog.AnchorPoint = Vector2.new(0.5, 0.5)
 			Dialog.BackgroundColor3 = Library.Colors.Default
-			Dialog.BackgroundTransparency = 0
+			Dialog.BackgroundTransparency = 1
 			Dialog.BorderColor3 = Color3.fromRGB(0, 0, 0)
 			Dialog.BorderSizePixel = 0
 			Dialog.Position = UDim2.new(0.5, 0, 0.5, 0)
@@ -5022,12 +5023,12 @@ function Library:CreateWindow(setup)
 				ImageTransparency = 0.500
 			})
 
-			UIStroke.Transparency = 0
+			UIStroke.Transparency = 1
 			UIStroke.Color = Color3.fromRGB(156, 156, 156)
 			UIStroke.Parent = Dialog
 
 			Library:Tween(UIStroke,Library.TweenLibrary.SmallEffect,{
-				Transparency = 0
+				Transparency = 0.850
 			})
 
 			UIGradient.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(255, 255, 255)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(209, 209, 209))}
@@ -5038,7 +5039,7 @@ function Library:CreateWindow(setup)
 			Title.Parent = Dialog
 			Title.AnchorPoint = Vector2.new(0.5, 0)
 			Title.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-			Title.BackgroundTransparency = 0
+			Title.BackgroundTransparency = 1.000
 			Title.BorderColor3 = Color3.fromRGB(0, 0, 0)
 			Title.BorderSizePixel = 0
 			Title.Position = UDim2.new(0.5, 0, 0.0649999976, 0)
@@ -5050,9 +5051,9 @@ function Library:CreateWindow(setup)
 			Title.TextScaled = true
 			Title.TextSize = 14.000
 			Title.TextStrokeColor3 = Library.Colors.TextColor
-			Title.TextStrokeTransparency = 0
+			Title.TextStrokeTransparency = 1
 			Title.TextWrapped = true
-			Title.TextTransparency = 0
+			Title.TextTransparency = 1
 			Title.RichText = true
 
 			Library:Tween(Title,Library.TweenLibrary.SmallEffect,{
@@ -5064,7 +5065,7 @@ function Library:CreateWindow(setup)
 			Buttons.Parent = Dialog
 			Buttons.AnchorPoint = Vector2.new(0.5, 1)
 			Buttons.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-			Buttons.BackgroundTransparency = 0
+			Buttons.BackgroundTransparency = 1.000
 			Buttons.BorderColor3 = Color3.fromRGB(0, 0, 0)
 			Buttons.BorderSizePixel = 0
 			Buttons.Position = UDim2.new(0.5, 0, 1, 0)
@@ -5143,7 +5144,7 @@ function Library:CreateWindow(setup)
 
 				Library:Tween(Title,Library.TweenLibrary.SmallEffect,{
 					TextStrokeTransparency = 1,
-					TextTransparency = 0
+					TextTransparency = 1
 				})
 
 				task.delay(1,function()
@@ -5177,7 +5178,7 @@ function Library:CreateWindow(setup)
 				Frame.BorderSizePixel = 0
 				Frame.Size = UDim2.new(0.469999999, 0, 0, 25)
 				Frame.ZIndex = 285
-				Frame.BackgroundTransparency = 0;
+				Frame.BackgroundTransparency = 1;
 
 				if #setup.Buttons <= 6 then
 					Frame.Size = UDim2.new(0.469999999, 0, 0, 25)
@@ -5189,7 +5190,7 @@ function Library:CreateWindow(setup)
 					BackgroundTransparency = 0.15
 				})
 
-				UIStroke.Transparency = 0
+				UIStroke.Transparency = 1
 				UIStroke.Color = Color3.fromRGB(156, 156, 156)
 				UIStroke.Parent = Frame
 
@@ -5200,7 +5201,7 @@ function Library:CreateWindow(setup)
 				DropShadow.Name = "DropShadow"
 				DropShadow.Parent = Frame
 				DropShadow.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-				DropShadow.BackgroundTransparency = 1
+				DropShadow.BackgroundTransparency = 1.000
 				DropShadow.BorderColor3 = Color3.fromRGB(27, 42, 53)
 				DropShadow.Position = UDim2.new(0, -5, 0, -5)
 				DropShadow.Rotation = 0.010
@@ -5220,7 +5221,7 @@ function Library:CreateWindow(setup)
 				TextLabel.Parent = Frame
 				TextLabel.AnchorPoint = Vector2.new(0.5, 0.5)
 				TextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-				TextLabel.BackgroundTransparency = 0
+				TextLabel.BackgroundTransparency = 1.000
 				TextLabel.BorderColor3 = Color3.fromRGB(0, 0, 0)
 				TextLabel.BorderSizePixel = 0
 				TextLabel.Position = UDim2.new(0.5, 0, 0.5, 0)
@@ -5232,9 +5233,9 @@ function Library:CreateWindow(setup)
 				TextLabel.TextScaled = true
 				TextLabel.TextSize = 14.000
 				TextLabel.TextStrokeColor3 = Color3.fromRGB(220, 224, 234)
-				TextLabel.TextStrokeTransparency = 0
+				TextLabel.TextStrokeTransparency = 1
 				TextLabel.TextWrapped = true
-				TextLabel.TextTransparency = 0
+				TextLabel.TextTransparency = 1
 				TextLabel.RichText = true
 
 				Library:Tween(TextLabel,Library.TweenLibrary.SmallEffect,{
@@ -5245,7 +5246,7 @@ function Library:CreateWindow(setup)
 				Button.Name = "Button"
 				Button.Parent = Frame
 				Button.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-				Button.BackgroundTransparency = 0
+				Button.BackgroundTransparency = 1.000
 				Button.BorderColor3 = Color3.fromRGB(0, 0, 0)
 				Button.BorderSizePixel = 0
 				Button.Size = UDim2.new(1, 0, 1, 0)
@@ -5253,7 +5254,7 @@ function Library:CreateWindow(setup)
 				Button.Font = Enum.Font.SourceSans
 				Button.TextColor3 = Color3.fromRGB(0, 0, 0)
 				Button.TextSize = 14.000
-				Button.TextTransparency = 0
+				Button.TextTransparency = 1.000
 
 				table.insert(ListFunctions,function()
 
@@ -5469,7 +5470,7 @@ function Library:CreateWindow(setup)
 	Resize.Parent = MainFrame
 	Resize.AnchorPoint = Vector2.new(0.5, 0.5)
 	Resize.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-	Resize.BackgroundTransparency = 0
+	Resize.BackgroundTransparency = 1.000
 	Resize.BorderColor3 = Color3.fromRGB(0, 0, 0)
 	Resize.BorderSizePixel = 0
 	Resize.Position = UDim2.new(1, 0, 1, 0)
@@ -5488,7 +5489,7 @@ function Library:CreateWindow(setup)
 	NotificationBar.Name = "NotificationBar"
 	NotificationBar.Parent = ScreenGui
 	NotificationBar.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-	NotificationBar.BackgroundTransparency = 0
+	NotificationBar.BackgroundTransparency = 1.000
 	NotificationBar.BorderColor3 = Color3.fromRGB(27, 42, 53)
 	NotificationBar.BorderSizePixel = 0
 	NotificationBar.Position = UDim2.new(0, 10, 0, 10)
@@ -5566,7 +5567,7 @@ function Library:CreateWindow(setup)
 		Notification.Name = "Notification"
 		Notification.Parent = NotificationBar
 		Notification.BackgroundColor3 = Library.Colors.Default
-		Notification.BackgroundTransparency = 0
+		Notification.BackgroundTransparency = 1
 		Notification.BorderColor3 = Color3.fromRGB(27, 42, 53)
 		Notification.BorderSizePixel = 0
 		Notification.Size = UDim2.new(0, 200, 0, 1)
@@ -5590,7 +5591,7 @@ function Library:CreateWindow(setup)
 		Title.Name = "Title"
 		Title.Parent = Notification
 		Title.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-		Title.BackgroundTransparency = 0
+		Title.BackgroundTransparency = 1.000
 		Title.BorderColor3 = Color3.fromRGB(27, 42, 53)
 		Title.BorderSizePixel = 0
 		Title.Position = UDim2.new(0, 25, 0, 5)
@@ -5602,16 +5603,16 @@ function Library:CreateWindow(setup)
 		Title.TextScaled = true
 		Title.TextSize = 14.000
 		Title.TextStrokeColor3 = Color3.fromRGB(220, 224, 234)
-		Title.TextStrokeTransparency = 0
+		Title.TextStrokeTransparency = 1
 		Title.TextWrapped = true
-		Title.TextTransparency = 0
+		Title.TextTransparency = 1
 		Title.RichText = true
 
 		Close.Name = "Close"
 		Close.Parent = Notification
 		Close.Active = false
 		Close.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-		Close.BackgroundTransparency = 0
+		Close.BackgroundTransparency = 1.000
 		Close.BorderColor3 = Color3.fromRGB(27, 42, 53)
 		Close.BorderSizePixel = 0
 		Close.Position = UDim2.new(1, -25, 0, 0)
@@ -5623,13 +5624,13 @@ function Library:CreateWindow(setup)
 		Close.TextColor3 = Color3.fromRGB(220, 224, 234)
 		Close.TextSize = 20.000
 		Close.TextStrokeColor3 = Color3.fromRGB(220, 224, 234)
-		Close.TextStrokeTransparency = 0
-		Close.TextTransparency = 0
+		Close.TextStrokeTransparency = 0.950
+		Close.TextTransparency = 1
 
 		Message.Name = "Message"
 		Message.Parent = Notification
 		Message.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-		Message.BackgroundTransparency = 0
+		Message.BackgroundTransparency = 1.000
 		Message.BorderColor3 = Color3.fromRGB(27, 42, 53)
 		Message.BorderSizePixel = 0
 		Message.Position = UDim2.new(0, 10, 0, 22)
@@ -5640,11 +5641,11 @@ function Library:CreateWindow(setup)
 		Message.TextColor3 = Library.Colors.TextColor
 		Message.TextSize = 12.000
 		Message.TextStrokeColor3 = Color3.fromRGB(220, 224, 234)
-		Message.TextStrokeTransparency = 0
+		Message.TextStrokeTransparency = 0.950
 		Message.TextWrapped = true
 		Message.TextXAlignment = Enum.TextXAlignment.Left
 		Message.TextYAlignment = Enum.TextYAlignment.Top
-		Message.TextTransparency = 0
+		Message.TextTransparency = 1
 		Message.RichText = true;
 
 		local update = function()
@@ -5655,7 +5656,7 @@ function Library:CreateWindow(setup)
 			local mainx = ((SIZE2.X > size.X) and SIZE2.X) or size.X
 			Library:Tween(Notification,Library.TweenLibrary.BinEffect,{
 				Size = UDim2.new(0, mainx + 35, 0, (10 + size.Y) + Title.AbsoluteSize.Y),
-				BackgroundTransparency = 0
+				BackgroundTransparency = 0.3
 			})
 		end;
 
