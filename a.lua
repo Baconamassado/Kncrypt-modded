@@ -2105,7 +2105,7 @@ function Library:CreateWindow(setup)
 	MainFrame.Parent = ScreenGui
 	MainFrame.Active = true
 	MainFrame.AnchorPoint = Vector2.new(0.5, 0.5)
-	MainFrame.BackgroundColor3 = Library.Colors.Default
+	MainFrame.BackgroundColor3 = Color3.new(0, 0, 0)
 	MainFrame.BackgroundTransparency = 0
 	MainFrame.BorderColor3 = Color3.fromRGB(0, 0, 0)
 	MainFrame.BorderSizePixel = 0
@@ -2483,7 +2483,7 @@ function Library:CreateWindow(setup)
 	Block.Parent = MainFrame
 	Block.Active = true
 	Block.AnchorPoint = Vector2.new(0.5, 0.5)
-	Block.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	Block.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
 	Block.BackgroundTransparency = 0
 	Block.BorderColor3 = Color3.fromRGB(0, 0, 0)
 	Block.BorderSizePixel = 0
@@ -2609,7 +2609,7 @@ function Library:CreateWindow(setup)
 
 	Frame.Parent = Headers
 	Frame.AnchorPoint = Vector2.new(0, 1)
-	Frame.BackgroundColor3 = Color3.fromRGB(107, 110, 120)
+	Frame.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
 	Frame.BackgroundTransparency = 0
 	Frame.BorderColor3 = Color3.fromRGB(0, 0, 0)
 	Frame.BorderSizePixel = 0
@@ -2619,7 +2619,7 @@ function Library:CreateWindow(setup)
 	DataFrame.Name = "DataFrame"
 	DataFrame.Parent = Block
 	DataFrame.AnchorPoint = Vector2.new(0, 1)
-	DataFrame.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	DataFrame.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
 	DataFrame.BackgroundTransparency = 0
 	DataFrame.BorderColor3 = Color3.fromRGB(0, 0, 0)
 	DataFrame.BorderSizePixel = 0
