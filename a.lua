@@ -2121,11 +2121,11 @@ function Library:CreateWindow(setup)
 
 				if qualityLevel < 8 then
 					Library:Tween(MainFrame , Library.TweenLibrary.SmallEffect , {
-						BackgroundTransparency = 0.075
+						BackgroundTransparency = 0
 					})
 				else
 					Library:Tween(MainFrame , Library.TweenLibrary.SmallEffect , {
-						BackgroundTransparency = 0.15
+						BackgroundTransparency = 0
 					})
 
 				end;
