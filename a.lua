@@ -2484,7 +2484,7 @@ function Library:CreateWindow(setup)
 	Block.Active = true
 	Block.AnchorPoint = Vector2.new(0.5, 0.5)
 	Block.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-	Block.BackgroundTransparency = 1.000
+	Block.BackgroundTransparency = 0
 	Block.BorderColor3 = Color3.fromRGB(0, 0, 0)
 	Block.BorderSizePixel = 0
 	Block.Position = UDim2.new(0.5, 0, -2, 0)
@@ -2610,7 +2610,7 @@ function Library:CreateWindow(setup)
 	Frame.Parent = Headers
 	Frame.AnchorPoint = Vector2.new(0, 1)
 	Frame.BackgroundColor3 = Color3.fromRGB(107, 110, 120)
-	Frame.BackgroundTransparency = 0.250
+	Frame.BackgroundTransparency = 0
 	Frame.BorderColor3 = Color3.fromRGB(0, 0, 0)
 	Frame.BorderSizePixel = 0
 	Frame.Position = UDim2.new(0, 0, 1, 0)
@@ -2620,7 +2620,7 @@ function Library:CreateWindow(setup)
 	DataFrame.Parent = Block
 	DataFrame.AnchorPoint = Vector2.new(0, 1)
 	DataFrame.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-	DataFrame.BackgroundTransparency = 1.000
+	DataFrame.BackgroundTransparency = 0
 	DataFrame.BorderColor3 = Color3.fromRGB(0, 0, 0)
 	DataFrame.BorderSizePixel = 0
 	DataFrame.ClipsDescendants = true
