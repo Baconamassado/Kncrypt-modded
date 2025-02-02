@@ -1537,7 +1537,7 @@ function Library.Theme:Christmas()
 	}
 end
 
-function Library.Thene:Nexus()
+function Library.Theme:Nexus()
 	Library.Colors = {
 		Hightlight = Color3.fromRGB(180, 0, 255),
 		Default = Color3.fromRGB(20, 20, 30),
