@@ -1537,6 +1537,15 @@ function Library.Theme:Christmas()
 	}
 end
 
+function Library.Thene:Nexus()
+	Library.Colors = {
+		Hightlight = Color3.fromRGB(180, 0, 255),
+		Default = Color3.fromRGB(20, 20, 30),
+		Disable = Color3.fromRGB(80, 0, 120),
+		TextColor = Color3.fromRGB(200, 100, 255),
+	}
+end
+
 function Library.Theme:Hellmenu()
     Library.Colors = {
 		Hightlight = Color3.fromRGB(255, 0, 0),
